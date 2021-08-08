@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Mansonry from "./components/Mansonry";
+import TopBar from "./components/TopBar";
+import { useEffect, useState } from "react";
+import Gallery from "./components/Gallery";
 
 function App() {
+  const [started, setStarted] = useState(false);
+  const [paintingId, setPaintingId] = useState();
+
+  useEffect(
+    () => {
+      console.log(paintingId)
+    },
+    [paintingId]
+  )
+
+  const handleSlideShow = () => (e) => {
+    started ? setStarted(false) : setStarted(true);
+    setPaintingId(e.target.id)
+  };
+
+  console.log("paintingId", paintingId)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopBar handleSlideShow={handleSlideShow()} started={started} />
+      {started ? <Gallery paintingId={paintingId} /> : <Mansonry handleSlideShow={handleSlideShow()} />}
     </div>
   );
 }
