@@ -9,20 +9,40 @@ const styles = (theme) => ({
     marginLeft: "5%",
     backgroundColor: "white",
   },
+  hero: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row",
+    }
+  },
   heroImg: {
     width: "100%",
     height: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "70%",
+      minHeight: "25rem",
+     }
   },
   titleContainer: {
     display: "flex",
     flexDirection: "column",
     position: "relative",
     top: "-4rem",
+    [theme.breakpoints.up("sm")]: {
+      top: "0",
+      left: "-4rem",
+      alignItems: "flex-end"
+    }
+
   },
   captionContainer: {
-    width: "fit-content",
+    width: "70%",
     backgroundColor: "white",
     padding: "1rem",
+    [theme.breakpoints.up("sm")]: {
+      width: "fit-content"
+    }
   },
   title: {
     paddingBottom: "1rem",
@@ -40,12 +60,41 @@ const styles = (theme) => ({
   year: {
     fontFamily: "Libre Baskerville",
     fontSize: "6rem",
-    fontWeight: 800,
+    fontWeight: 600,
     color: "#e5e5e5",
     marginTop: "-4rem",
     marginBottom: "3rem",
     textAlign: "right",
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "5rem",
+      textAlign: "left",
+      fontSize: "6.5rem",
+      color: "#f3f3f3",
+
+    },
   },
+  text: {
+    paddingBottom: "3rem",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: "5rem",
+      paddingRight: "5rem",
+      marginTop: "-4rem"
+    }
+  },
+  sourcesLink: {
+    paddingBottom: "3rem",
+    color: "#7d7d7d",
+    textDecoration: "underline",
+    "&:hover": {
+      color: "black",
+    },
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: "5rem",
+
+    }
+
+
+  }
 });
 
 function Gallery({ classes, paintingId }) {
@@ -56,6 +105,8 @@ function Gallery({ classes, paintingId }) {
 
   return (
     <div className={classes.root}>
+    <div className={classes.hero}>
+    
       <img
         src={painting.images.hero.small}
         alt={painting.name}
@@ -76,11 +127,12 @@ function Gallery({ classes, paintingId }) {
           className={classes.artistImg}
         />
       </div>
+      </div>
       <Typography className={classes.year}>{painting.year}</Typography>
       <Typography variant="body1" className={classes.text}>
         {painting.description}
       </Typography>
-      <Link href={painting.description}>go to source</Link>
+      <Link href={painting.source} className={classes.sourcesLink}>go to source</Link>
     </div>
   );
 }
