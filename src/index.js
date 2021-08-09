@@ -35,7 +35,16 @@ let theme = createTheme({
       "@media( max-width:600px )": {
         fontSize: "16px",
       }
-    }
+    },
+    body1: {
+      fontFamily: "Libre Baskerville",
+      fontSize: "14px",
+      lineHeight: "28px",
+      weight: 600,
+      "@media( max-width:600px )": {
+        fontSize: "12px",
+      }
+    },
   }
 })
 
