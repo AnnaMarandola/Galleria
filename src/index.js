@@ -33,7 +33,7 @@ let theme = createTheme({
       lineHeight: "20px",
       weight: 800,
       "@media( max-width:600px )": {
-        fontSize: "16px",
+        fontSize: "10px",
       }
     },
     body1: {

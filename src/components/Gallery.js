@@ -10,6 +10,8 @@ const styles = (theme) => ({
     backgroundColor: "white",
     [theme.breakpoints.up("lg")]: {
       display: "flex",
+      paddingTop: "5rem",
+      paddingBottom: "5rem",
     },
   },
   hero: {
@@ -31,7 +33,8 @@ const styles = (theme) => ({
     [theme.breakpoints.up("sm")]: {
       top: "0",
       left: "-4rem",
-      alignItems: "flex-end",
+      alignItems: "center",
+      justifyContent: "space-between"
     },
   },
   captionContainer: {
@@ -107,11 +110,8 @@ const styles = (theme) => ({
   },
 });
 
-function Gallery({ classes, paintingId }) {
-  const painting = paintingsData.find(
-    (painting) => painting.name === paintingId
-  );
-  console.log("painting", painting);
+function Gallery({ classes, index }) {
+  let painting = paintingsData.find((painting) => painting.id === index +1)
 
   return (
     <div className={classes.root}>
@@ -123,10 +123,10 @@ function Gallery({ classes, paintingId }) {
         />
         <div className={classes.titleContainer}>
           <div className={classes.captionContainer}>
-            <Typography className={classes.title} variant="h2">
+            <Typography className={classes.title} variant="h1">
               {painting.name}
             </Typography>
-            <Typography className={classes.artistname} variant="h3">
+            <Typography className={classes.artistName} variant="h2">
               {painting.artist.name}
             </Typography>
           </div>
