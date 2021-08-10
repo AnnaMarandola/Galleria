@@ -111,6 +111,7 @@ const styles = (theme) => ({
 });
 
 function Gallery({ classes, index }) {
+  
   let painting = paintingsData.find((painting) => painting.id === index +1)
 
   return (

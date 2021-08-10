@@ -2,7 +2,6 @@ import { Typography } from "@material-ui/core";
 import { withStyles, Button } from "@material-ui/core";
 import { Fragment } from "react";
 import { paintingsData } from "../paintingsData";
-
 import BACK from "../assets/shared/icon-back-button.svg";
 import NEXT from "../assets/shared/icon-next-button.svg";
 
@@ -42,14 +41,18 @@ const styles = (theme) => ({
 
 });
 
-function Player({ classes, index, goNext, goBack}) {
-  console.log("openId", index)
+function Player({ classes, index, goNext, goBack }) {
+
+  const galleryLenght = paintingsData.length;
+  let progress =  (index) / ((galleryLenght - 1) / 100)
+
   let painting = paintingsData.find((painting) => painting.id === index +1)
+
   return (
     <Fragment>
 
     <div className={classes.progressBarContainer}>
-    <div className={classes.progress}/>
+    <div className={classes.progress} style={{ width: `${progress}%`}}/>
     </div>
 
     <div className={classes.root}>

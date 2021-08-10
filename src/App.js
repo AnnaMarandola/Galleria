@@ -15,9 +15,8 @@ function App() {
     console.log(paintingId);
   }, [paintingId, index]);
 
-  const painting = paintingsData.find(
-    (painting) => painting.name === paintingId
-  );
+
+  const galleryLenght = paintingsData.length;
 
   const handleSlideShow = () => (e) => {
     started ? setStarted(false) : setStarted(true);
@@ -26,8 +25,6 @@ function App() {
       paintingsData.findIndex((painting) => painting.name === e.target.id)
     );
   };
-
-  const galleryLenght = paintingsData.length;
 
   const goNext = () => (e) => {
     if (index < galleryLenght - 1) {
@@ -50,8 +47,8 @@ function App() {
       <TopBar handleSlideShow={handleSlideShow()} started={started} />
       {started ? (
         <div>
-          <Gallery painting={painting} index={index} />
-          <Player painting={painting} index={index} goNext={goNext()} goBack={goback()} />
+          <Gallery  index={index} />
+          <Player  index={index} goNext={goNext()} goBack={goback()} />
         </div>
       ) : (
         <Mansonry handleSlideShow={handleSlideShow()} />
