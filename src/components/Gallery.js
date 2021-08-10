@@ -8,21 +8,20 @@ const styles = (theme) => ({
     width: "90%",
     marginLeft: "5%",
     backgroundColor: "white",
+    [theme.breakpoints.up("lg")]: {
+      display: "flex",
+    },
   },
   hero: {
     display: "flex",
     flexDirection: "column",
     [theme.breakpoints.up("sm")]: {
       flexDirection: "row",
-    }
+    },
   },
   heroImg: {
-    width: "100%",
-    height: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "70%",
-      minHeight: "25rem",
-     }
+    width: "auto",
+    height: "auto",
   },
   titleContainer: {
     display: "flex",
@@ -32,17 +31,16 @@ const styles = (theme) => ({
     [theme.breakpoints.up("sm")]: {
       top: "0",
       left: "-4rem",
-      alignItems: "flex-end"
-    }
-
+      alignItems: "flex-end",
+    },
   },
   captionContainer: {
     width: "70%",
     backgroundColor: "white",
     padding: "1rem",
     [theme.breakpoints.up("sm")]: {
-      width: "fit-content"
-    }
+      width: "fit-content",
+    },
   },
   title: {
     paddingBottom: "1rem",
@@ -57,6 +55,11 @@ const styles = (theme) => ({
     width: "6.3rem",
     height: "6.3rem",
   },
+  textContainer: {
+    [theme.breakpoints.up("lg")]: {
+      width: "40%",
+    },
+  },
   year: {
     fontFamily: "Libre Baskerville",
     fontSize: "6rem",
@@ -70,6 +73,12 @@ const styles = (theme) => ({
       textAlign: "left",
       fontSize: "6.5rem",
       color: "#f3f3f3",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "9rem",
+      fontWeight: 400,
+      color: "#e5e5e5",
+      textAlign: "right",
 
     },
   },
@@ -78,7 +87,11 @@ const styles = (theme) => ({
     [theme.breakpoints.up("sm")]: {
       paddingLeft: "5rem",
       paddingRight: "5rem",
-      marginTop: "-4rem"
+      marginTop: "-4rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginTop: "-2.5rem",
+
     }
   },
   sourcesLink: {
@@ -90,11 +103,8 @@ const styles = (theme) => ({
     },
     [theme.breakpoints.up("sm")]: {
       paddingLeft: "5rem",
-
-    }
-
-
-  }
+    },
+  },
 });
 
 function Gallery({ classes, paintingId }) {
@@ -105,34 +115,38 @@ function Gallery({ classes, paintingId }) {
 
   return (
     <div className={classes.root}>
-    <div className={classes.hero}>
-    
-      <img
-        src={painting.images.hero.small}
-        alt={painting.name}
-        className={classes.heroImg}
-      />
-      <div className={classes.titleContainer}>
-        <div className={classes.captionContainer}>
-          <Typography className={classes.title} variant="h2">
-            {painting.name}
-          </Typography>
-          <Typography className={classes.artistname} variant="h3">
-            {painting.artist.name}
-          </Typography>
-        </div>
+      <div className={classes.hero}>
         <img
-          src={painting.artist.image}
-          alt={painting.artist.name}
-          className={classes.artistImg}
+          src={painting.images.hero.small}
+          alt={painting.name}
+          className={classes.heroImg}
         />
+        <div className={classes.titleContainer}>
+          <div className={classes.captionContainer}>
+            <Typography className={classes.title} variant="h2">
+              {painting.name}
+            </Typography>
+            <Typography className={classes.artistname} variant="h3">
+              {painting.artist.name}
+            </Typography>
+          </div>
+          <img
+            src={painting.artist.image}
+            alt={painting.artist.name}
+            className={classes.artistImg}
+          />
+        </div>
       </div>
+
+      <div className={classes.textContainer}>
+        <Typography className={classes.year}>{painting.year}</Typography>
+        <Typography variant="body1" className={classes.text}>
+          {painting.description}
+        </Typography>
+        <Link href={painting.source} className={classes.sourcesLink}>
+          go to source
+        </Link>
       </div>
-      <Typography className={classes.year}>{painting.year}</Typography>
-      <Typography variant="body1" className={classes.text}>
-        {painting.description}
-      </Typography>
-      <Link href={painting.source} className={classes.sourcesLink}>go to source</Link>
     </div>
   );
 }
