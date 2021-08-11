@@ -20,11 +20,10 @@ let theme = createTheme({
     },
     h2: {
       fontFamily: "Libre Baskerville",
-      fontSize: "24px",
+      fontSize: "1.5rem",
       lineHeight: "29px",
-      weight: 800,
       "@media( max-width:600px )": {
-        fontSize: "22px",
+        fontSize: "1.2rem",
       }
     },
     h3: {
