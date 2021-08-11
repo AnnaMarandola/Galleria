@@ -1,5 +1,7 @@
 import STARRYNIGHTTHUMB from "./assets/starry-night/thumbnail.jpg";
 import STARRYNIGHTSMALL from "./assets/starry-night/hero-small.jpg";
+import STARRYNIGHTLARGE from "./assets/starry-night/hero-large.jpg";
+import STARRYNIGHTGALLERY from  "./assets/starry-night/gallery.jpg";
 import VANGOGH from "./assets/starry-night/artist.jpg";
 import PEARLGIRLTHUMB from "./assets/girl-with-pearl-earring/thumbnail.jpg";
 import PEARLGIRLSMALL from "./assets/girl-with-pearl-earring/hero-small.jpg";
@@ -55,9 +57,9 @@ export const paintingsData = [
         thumbnail: STARRYNIGHTTHUMB,
         hero: {
           small: STARRYNIGHTSMALL,
-          large: "./assets/starry-night/hero-large.jpg"
+          large: STARRYNIGHTLARGE,
         },
-        gallery: "./assets/starry-night/gallery.jpg"
+        gallery: STARRYNIGHTGALLERY,
       }
     },
     {

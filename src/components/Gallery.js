@@ -2,6 +2,7 @@ import { Typography } from "@material-ui/core";
 import { Link } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
 import { paintingsData } from "../paintingsData";
+import PaintingView from "./PaintingView";
 
 const styles = (theme) => ({
   root: {
@@ -34,7 +35,7 @@ const styles = (theme) => ({
       top: "0",
       left: "-4rem",
       alignItems: "center",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
   },
   captionContainer: {
@@ -82,7 +83,6 @@ const styles = (theme) => ({
       fontWeight: 400,
       color: "#e5e5e5",
       textAlign: "right",
-
     },
   },
   text: {
@@ -94,8 +94,7 @@ const styles = (theme) => ({
     },
     [theme.breakpoints.up("lg")]: {
       marginTop: "-2.5rem",
-
-    }
+    },
   },
   sourcesLink: {
     paddingBottom: "3rem",
@@ -111,17 +110,19 @@ const styles = (theme) => ({
 });
 
 function Gallery({ classes, index }) {
-  
-  let painting = paintingsData.find((painting) => painting.id === index +1)
+  let painting = paintingsData.find((painting) => painting.id === index + 1);
 
   return (
     <div className={classes.root}>
       <div className={classes.hero}>
-        <img
-          src={painting.images.hero.small}
-          alt={painting.name}
-          className={classes.heroImg}
-        />
+        {/* <div className={classes.imageContainer}> */}
+          <img
+            src={painting.images.hero.small}
+            alt={painting.name}
+            className={classes.heroImg}
+          />
+          <PaintingView painting={painting} />
+        {/* </div> */}
         <div className={classes.titleContainer}>
           <div className={classes.captionContainer}>
             <Typography className={classes.title} variant="h1">
