@@ -34,7 +34,7 @@ const styles = (theme) => ({
   },
 });
 
-function Mansonry({ classes, handleOpenGallery }) {
+function Mansonry({ classes, handleSlideShow }) {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -57,7 +57,7 @@ function Mansonry({ classes, handleOpenGallery }) {
               id={item.name}
               loading="lazy"
               className={classes.thumbImg}
-              onClick={handleOpenGallery}
+              onClick={handleSlideShow}
             />
             <div className={classes.titleBar}>
               <Typography variant="h2">{item.name}</Typography>

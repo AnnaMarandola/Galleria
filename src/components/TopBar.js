@@ -38,11 +38,10 @@ const styles = (theme) => ({
 });
 
 function TopBar({ classes, handleSlideShow, started }) {
-
   return (
     <div className={classes.root}>
       <img src={LOGO} alt="Galleria logo" />
-      <Button className={classes.slideshowButton} onClick={handleSlideShow} id="start">
+      <Button className={classes.slideshowButton} onClick={handleSlideShow}>
         {started ? "stop slideshow" : "start slideshow"}
       </Button>
     </div>

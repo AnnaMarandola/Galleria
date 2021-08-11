@@ -11,11 +11,11 @@ let theme = createTheme({
     useNextVariants: true,
     h1: {
       fontFamily: "Libre Baskerville",
-      fontSize: "56px",
+      fontSize: "3rem",
       lineHeight: "64px",
       weight: 800,
       "@media( max-width:600px )": {
-        fontSize: "36px",
+        fontSize: "2rem",
       }
     },
     h2: {
