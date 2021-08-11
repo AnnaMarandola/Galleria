@@ -15,15 +15,19 @@ function App() {
     console.log(paintingId);
   }, [paintingId, index]);
 
-
   const galleryLenght = paintingsData.length;
 
-  const handleSlideShow = () => (e) => {
+  const handleOpenGallery = () => (e) => {
     started ? setStarted(false) : setStarted(true);
     setPaintingId(e.target.id);
     setIndex(
       paintingsData.findIndex((painting) => painting.name === e.target.id)
     );
+  };
+  const handleSlideShow = () => (e) => {
+    started ? setStarted(false) : setStarted(true);
+    setPaintingId("Starry Night");
+    setIndex(0);
   };
 
   const goNext = () => (e) => {
@@ -47,11 +51,11 @@ function App() {
       <TopBar handleSlideShow={handleSlideShow()} started={started} />
       {started ? (
         <div>
-          <Gallery  index={index} />
-          <Player  index={index} goNext={goNext()} goBack={goback()} />
+          <Gallery index={index} />
+          <Player index={index} goNext={goNext()} goBack={goback()} />
         </div>
       ) : (
-        <Mansonry handleSlideShow={handleSlideShow()} />
+        <Mansonry handleOpenGallery={handleOpenGallery()} />
       )}
     </div>
   );

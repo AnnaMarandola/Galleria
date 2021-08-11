@@ -41,8 +41,8 @@ function TopBar({ classes, handleSlideShow, started }) {
 
   return (
     <div className={classes.root}>
-      <img src={LOGO} alt="Galleria" />
-      <Button className={classes.slideshowButton} onClick={handleSlideShow}>
+      <img src={LOGO} alt="Galleria logo" />
+      <Button className={classes.slideshowButton} onClick={handleSlideShow} id="start">
         {started ? "stop slideshow" : "start slideshow"}
       </Button>
     </div>

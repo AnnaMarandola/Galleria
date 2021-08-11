@@ -7,30 +7,8 @@ const styles = (theme) => ({
   root: {
     width: "90%",
     marginLeft: "5%",
-    // display: "flex",
-    // flexWrap: "wrap",
-    // alignItems: "center",
-    // justifyContent: "center",
     marginTop: "5rem",
   },
-  // thumbnail: {
-  //   width: "100%",
-  //   [theme.breakpoints.up("sm")]: {
-  //     width: "45%",
-  //     padding: "0 1rem",
-  //     marginTop: "-2rem",
-  //   },
-  //   [theme.breakpoints.up("md")]: {
-  //     width: "30%",
-  //     padding: "0 0.5rem",
-  //     marginTop: "-3rem",
-  //   },
-  //   [theme.breakpoints.up("lg")]: {
-  //     width: "25%",
-  //     padding: "0 1rem",
-  //     marginTop: "-5rem",
-  //   },
-  // },
   thumbImg: {
     width: "90%",
     "&:hover": {
@@ -39,7 +17,7 @@ const styles = (theme) => ({
   },
   titleBar: {
     position: "relative",
-    top: "-9rem",
+    top: "-7rem",
     left: "2rem",
     marginRight: "2rem",
     color: "white",
@@ -47,23 +25,23 @@ const styles = (theme) => ({
   },
   mansonryGrid: {
     display: "flex",
-    width: "auto", 
+    width: "auto",
     textAlign: "center",
-    alignItems: "space-evenly"
+    alignItems: "space-evenly",
   },
   masonryGrid_column: {
     backgroundClip: "padding-box",
   },
 });
 
-
-function Mansonry({ classes, handleSlideShow }) {
+function Mansonry({ classes, handleOpenGallery }) {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
     700: 2,
-    500: 1
+    500: 1,
   };
+
   return (
     <div className={classes.root}>
       <Masonry
@@ -79,7 +57,7 @@ function Mansonry({ classes, handleSlideShow }) {
               id={item.name}
               loading="lazy"
               className={classes.thumbImg}
-              onClick={handleSlideShow}
+              onClick={handleOpenGallery}
             />
             <div className={classes.titleBar}>
               <Typography variant="h2">{item.name}</Typography>
