@@ -36,6 +36,7 @@ const styles = (theme) => ({
   },
   playerContainer: {
     padding: "2rem 1rem",
+    width: "80%"
   },
 });
 
